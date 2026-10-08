@@ -1,0 +1,7 @@
+{
+  "environment": "dev",
+  "application": "venu-app",
+  "region": "ap-south-2",
+  "replicas": 1,
+  "debug": true
+}

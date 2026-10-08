@@ -1,0 +1,7 @@
+{
+  "environment": "prod",
+  "application": "venu-app",
+  "region": "ap-south-2",
+  "replicas": 3,
+  "debug": false
+}

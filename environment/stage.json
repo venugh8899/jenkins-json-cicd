@@ -1,0 +1,7 @@
+{
+  "environment": "stage",
+  "application": "venu-app",
+  "region": "ap-south-2",
+  "replicas": 2,
+  "debug": false
+}

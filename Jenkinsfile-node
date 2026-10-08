@@ -1,0 +1,34 @@
+pipeline {
+
+    agent any
+
+    stages {
+
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
+
+        stage('Validate Node Configurations') {
+            steps {
+                sh '''
+                    python3 validation/validate_node.py node/dev.json
+                    python3 validation/validate_node.py node/stage.json
+                    python3 validation/validate_node.py node/uat.json
+                    python3 validation/validate_node.py node/prod.json
+                '''
+            }
+        }
+    }
+
+    post {
+        success {
+            echo 'Node configuration validation SUCCESSFUL'
+        }
+
+        failure {
+            echo 'Node configuration validation FAILED'
+        }
+    }
+}

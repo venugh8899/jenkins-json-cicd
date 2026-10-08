@@ -1,0 +1,6 @@
+{
+  "environment": "stage",
+  "node_type": "t3.medium",
+  "min_nodes": 2,
+  "max_nodes": 4
+}
