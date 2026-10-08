@@ -25,13 +25,21 @@ pipeline {
                     env.FEATURE_BRANCH = "feature/auto-${env.BUILD_NUMBER}"
                 }
 
-                sh '''
-                    echo "Creating feature branch: ${FEATURE_BRANCH}"
+                withCredentials([
+                    usernamePassword(
+                        credentialsId: 'github-jenugh-cicd',
+                        usernameVariable: 'GIT_USERNAME',
+                        passwordVariable: 'GIT_PASSWORD'
+                    )
+                ]) {
+                    sh '''
+                        echo "Creating feature branch: ${FEATURE_BRANCH}"
 
-                    git checkout -b ${FEATURE_BRANCH}
+                        git checkout -b ${FEATURE_BRANCH}
 
-                    git push origin ${FEATURE_BRANCH}
-                '''
+                        git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/venugh8899/jenkins-json-cicd.git ${FEATURE_BRANCH}
+                    '''
+                }
             }
         }
 
