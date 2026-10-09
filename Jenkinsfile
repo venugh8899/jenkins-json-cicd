@@ -80,7 +80,7 @@ pipeline {
             steps {
                 withCredentials([
                     string(
-                        credentialsId: 'github-api-token',
+                        credentialsId: 'github-api-token-text',
                         variable: 'GITHUB_TOKEN'
                     )
                 ]) {
