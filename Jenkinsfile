@@ -30,7 +30,7 @@ pipeline {
 
                 withCredentials([
                     usernamePassword(
-                        credentialsId: 'github-api-token-text',
+                        credentialsId: 'github-jenugh-cicd',
                         usernameVariable: 'GIT_USERNAME',
                         passwordVariable: 'GIT_PASSWORD'
                     )
